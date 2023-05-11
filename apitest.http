@@ -50,3 +50,6 @@ Content-Type: application/json
     "country": "BD",
     "rank": 1
 }
+
+###
+DELETE http://localhost:4000/b_pFz0FMO

@@ -24,6 +24,24 @@ app.use(express.json());
  * DELETE- /:id     -delete player from db
  */
 
+// DELETE- /:id     -delete player from db
+
+app.delete('/:id', async (req, res) => {
+  const id = req.params.id;
+
+  const data = await fs.readFile(dbLocation);
+  const players = JSON.parse(data);
+  let player = players.find((item) => item.id === id);
+
+  if (!player) {
+    return res.status(404).json({ message: 'Player Not Found' });
+  }
+
+  const newPlayers = players.filter((item) => item.id !== id);
+  await fs.writeFile(dbLocation, JSON.stringify(newPlayers));
+  res.status(203).send();
+});
+
 // PUT   - /:id     -update or create player
 app.put('/:id', async (req, res) => {
   const id = req.params.id;
