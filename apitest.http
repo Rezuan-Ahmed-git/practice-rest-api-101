@@ -1,0 +1,52 @@
+GET http://localhost:4000/health
+
+###
+
+POST http://localhost:4000
+Content-Type: application/json
+
+{
+    "name": "Shakib",
+    "country": "BD",
+    "rank": 3
+}
+
+###
+
+GET http://localhost:4000
+
+###
+
+GET http://localhost:4000/ojlyVmNZ-
+###
+
+GET http://localhost:4000/ruAatEc5B
+###
+
+GET http://localhost:4000/b_pFz0FMO
+
+###
+PATCH http://localhost:4000/ojlyVmNZ-
+Content-Type: application/json
+
+{
+    "name": "Rezuan Ahmed"
+}
+###
+PUT http://localhost:4000/ojlyVmNZ-
+Content-Type: application/json
+
+{
+    "name": "Masrafee",
+    "country": "BD",
+    "rank": 10
+}
+###
+PUT http://localhost:4000/ojlyVmN
+Content-Type: application/json
+
+{
+    "name": "Rezuan",
+    "country": "BD",
+    "rank": 1
+}
