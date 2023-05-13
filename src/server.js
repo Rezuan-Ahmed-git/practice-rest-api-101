@@ -39,7 +39,7 @@ app.delete('/:id', async (req, res) => {
 
   const newPlayers = players.filter((item) => item.id !== id);
   await fs.writeFile(dbLocation, JSON.stringify(newPlayers));
-  res.status(203).send();
+  res.status(204).send();
 });
 
 // PUT   - /:id     -update or create player
@@ -58,9 +58,9 @@ app.put('/:id', async (req, res) => {
     };
     players.push(player);
   } else {
-    player.name = req.body.name || player.name;
-    player.country = req.body.country || player.country;
-    player.rank = req.body.rank || player.rank;
+    player.name = req.body.name;
+    player.country = req.body.country;
+    player.rank = req.body.rank;
   }
 
   await fs.writeFile(dbLocation, JSON.stringify(players));
@@ -125,6 +125,7 @@ app.post('/', async (req, res) => {
 app.get('/', async (req, res) => {
   const data = await fs.readFile(dbLocation);
   const players = JSON.parse(data);
+  res.set('Cache-control', 'public, max-age=300');
   res.status(201).json(players);
 });
 

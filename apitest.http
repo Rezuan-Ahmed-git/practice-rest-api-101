@@ -53,3 +53,6 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:4000/b_pFz0FMO
+
+###
+GET https://api.github.com/users/Rezuan-Ahmed-git
